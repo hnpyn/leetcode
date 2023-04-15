@@ -8,11 +8,6 @@
 示例 3： 输入：head = [7,7,7,7], val = 7 输出：[]
 */
 
-#include<vector>
-
-using namespace std;
-
-
 struct ListNode {
     int val;
     ListNode *next;
