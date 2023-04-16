@@ -18,7 +18,7 @@ n 将在 [1, 10000]之间。
 nums 的每个元素都将在 [-9999, 9999]之间。
 */
 
-#include<vector>
+#include <vector>
 
 using namespace std;
 

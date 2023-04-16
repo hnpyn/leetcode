@@ -13,7 +13,7 @@
 1 <= nums[i] <= 10^5
 */
 
-#include<vector>
+#include <vector>
 
 using namespace std;
 
