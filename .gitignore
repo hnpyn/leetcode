@@ -13,3 +13,4 @@ venv
 CMakeScripts
 Testing
 Makefile
+.vscode/*
