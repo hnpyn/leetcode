@@ -13,3 +13,20 @@
 
 using namespace std;
 
+class Solution {
+public:
+    string reverseStr(string s, int k) {
+        // 不要写太多逻辑判断和计数，从for循环表达式上下手
+        for (int i = 0; i < s.size(); i += (2 * k)) {
+            // 每隔2k个字符，前k个反转
+            // 剩余字符小于2k但大于等于k时，前k个反转
+            if (i + k <= s.size()) {
+                reverse(s.begin() + i, s.begin() + i + k);
+            } else {
+                // 剩余字符少于k个，剩余全部反转
+                reverse(s.begin() + i, s.end());
+            }
+        }
+        return s;
+    }
+};
