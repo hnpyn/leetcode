@@ -15,6 +15,7 @@ Java的 indexOf() 定义相符。
 
 using namespace std;
 
+// KMP算法
 class Solution {
 public:
   void getNext(int *next, const string &s) {
