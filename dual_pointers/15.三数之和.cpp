@@ -26,20 +26,29 @@ public:
       if (nums[i] > 0) {
         return res;
       }
+      // 第一个数去重
       if (i > 0 && nums[i] == nums[i - 1]) {
         continue;
       }
-      unordered_set<int> set;
-      for (int j = i + 1; j < nums.size(); ++j) {
-        if (j > i + 2 && nums[j] == nums[j - 1] && nums[j - 1] == nums[j - 2]) {
-          continue;
-        }
-        int c = 0 - (nums[i] + nums[j]);
-        if (set.find(c) != set.end()) {
-          res.push_back({nums[i], nums[j], c});
-          set.erase(c);
+      int left = i + 1;
+      int right = nums.size() - 1;
+      while (right > left) {
+        if ((nums[i] + nums[left] + nums[right]) < 0) {
+          ++left;
+        } else if ((nums[i] + nums[left] + nums[right]) > 0) {
+          --right;
         } else {
-          set.insert(nums[j]);
+          res.push_back({nums[i], nums[left], nums[right]});
+          // 后两个数的去重应该放在找到第一个三元组之后
+          while (right > left && nums[right] == nums[right - 1]) {
+            --right;
+          }
+          while (right > left && nums[left] == nums[left + 1]) {
+            ++left;
+          }
+          // 找到答案后，双指针同时收缩
+          --right;
+          ++left;
         }
       }
     }
